@@ -9,7 +9,7 @@ categories: [Arduino, TelAPI, Electronics]
 {% img right https://github.com/mattwilliamson/arduino-sms-alarm/raw/master/action_shots/sms.png SMS Burglar Alert %}
 
 I made a simple Arduino project, using a motion sensor and the [TelAPI](http://goo.gl/A36VN) web service
-to send me an SMS when motion triggers the Arduino. You can view the source at [https://github.com/mattwilliamson/arduino-sms-alarm](http://goo.gl/iQMTh)
+to send me an SMS when motion (cat/burglar/child) triggers the Arduino. You can view the source at [https://github.com/mattwilliamson/arduino-sms-alarm](http://goo.gl/iQMTh)
 
 
 <!--more-->
