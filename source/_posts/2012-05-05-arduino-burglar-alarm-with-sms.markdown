@@ -90,8 +90,7 @@ Now, whevever motion is detected in the infra-red spectrum (think body heat), `s
 Video
 =====
 
-Quick video on youtube: http://youtu.be/9AuOZ4iV9zY
-
+{% video http://youtu.be/9AuOZ4iV9zY %}
 
 
 **BEEP BEEP WHISTLE**
