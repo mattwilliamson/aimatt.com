@@ -9,10 +9,11 @@ categories: [Arduino, TelAPI, Electronics]
 I made a simple Arduino project, using a motion sensor and the [Telapi](http://goo.gl/A36VN) web service
 to send me an SMS when motion triggers the Arduino. I'll just paste the README for the project here, as it covers the whole project in detail.
 
-------------------------------------------------------------------------------------------------------------
 
-Arduino SMS Alarm
-=================
+----
+
+
+## Arduino SMS Alarm
 
 An Arduino based burglar alarm that sends an SMS when motion is detected. 
 It will send an SMS to you every 30 minutes while motion is detected (configurable).
