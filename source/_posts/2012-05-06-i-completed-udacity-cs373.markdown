@@ -8,13 +8,13 @@ categories: Udacity
 
 It's official. I now know how to program a robotic car.
 
-![Certificate](https://github.com/mattwilliamson/blog.aimatt.com/raw/gh-pages/images/posts/cs373_certificate.png)
+![Certificate](https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/cs373_certificate.png)
 
 It was not easy by any means, but I aced Udacity's seven-week class, [CS373: Programming a Robotic Car](http://www.udacity.com/view#Course/cs373/CourseRev/feb2012). I spent a few hours a week on homework and a few hours a week on classwork, with the seventh week being the final exam. 
 
 I had to brush up on some math concepts I started to forget, like matrix arithmetic and probabilities, but I was able to get through, thanks to the [Khan Academy](http://www.khanacademy.org/). Some of the topics I learned about were:
 
-{% img right https://github.com/mattwilliamson/blog.aimatt.com/raw/gh-pages/images/posts/google_car.jpg Google Self Driving Car %}
+{% img right https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/google_car.jpg Google Self Driving Car %}
 
 * [Markov localization](http://en.wikipedia.org/wiki/Monte_Carlo_localization)
 * [Kalman Filters](http://en.wikipedia.org/wiki/Kalman_filter)
