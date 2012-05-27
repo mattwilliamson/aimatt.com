@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Udacity | AI Matt]]></title>
-  <link href="http://mattwilliamson.github.com/aimatt/categories/udacity/atom.xml" rel="self"/>
-  <link href="http://mattwilliamson.github.com/aimatt/"/>
-  <updated>2012-05-27T09:50:52-04:00</updated>
-  <id>http://mattwilliamson.github.com/aimatt/</id>
+  <link href="http://aimatt.com/categories/udacity/atom.xml" rel="self"/>
+  <link href="http://aimatt.com/"/>
+  <updated>2012-05-27T10:02:10-04:00</updated>
+  <id>http://aimatt.com/</id>
   <author>
     <name><![CDATA[Matt Williamson]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[I can program a robotic car]]></title>
-    <link href="http://mattwilliamson.github.com/aimatt/2012/05/06/i-completed-udacity-cs373/"/>
+    <link href="http://aimatt.com/2012/05/06/i-completed-udacity-cs373/"/>
     <updated>2012-05-06T15:25:00-04:00</updated>
-    <id>http://mattwilliamson.github.com/aimatt/2012/05/06/i-completed-udacity-cs373</id>
+    <id>http://aimatt.com/2012/05/06/i-completed-udacity-cs373</id>
     <content type="html"><![CDATA[<p>It's official. I now know how to program a robotic car.</p>
 
 <p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/cs373_certificate.png" alt="Certificate" /></p>

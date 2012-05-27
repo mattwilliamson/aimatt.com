@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: TelAPI | AI Matt]]></title>
-  <link href="http://mattwilliamson.github.com/aimatt/categories/telapi/atom.xml" rel="self"/>
-  <link href="http://mattwilliamson.github.com/aimatt/"/>
-  <updated>2012-05-27T09:50:52-04:00</updated>
-  <id>http://mattwilliamson.github.com/aimatt/</id>
+  <link href="http://aimatt.com/categories/telapi/atom.xml" rel="self"/>
+  <link href="http://aimatt.com/"/>
+  <updated>2012-05-27T10:02:10-04:00</updated>
+  <id>http://aimatt.com/</id>
   <author>
     <name><![CDATA[Matt Williamson]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Arduino Burglar Alarm with SMS]]></title>
-    <link href="http://mattwilliamson.github.com/aimatt/2012/05/05/arduino-burglar-alarm-with-sms/"/>
+    <link href="http://aimatt.com/2012/05/05/arduino-burglar-alarm-with-sms/"/>
     <updated>2012-05-05T11:17:00-04:00</updated>
-    <id>http://mattwilliamson.github.com/aimatt/2012/05/05/arduino-burglar-alarm-with-sms</id>
+    <id>http://aimatt.com/2012/05/05/arduino-burglar-alarm-with-sms</id>
     <content type="html"><![CDATA[<p><img class="right" src="https://github.com/mattwilliamson/arduino-sms-alarm/raw/master/action_shots/sms.png" title="SMS Burglar Alert" ></p>
 
 <p>I made a simple Arduino project, using a motion sensor and the <a href="http://goo.gl/A36VN">TelAPI</a> web service
