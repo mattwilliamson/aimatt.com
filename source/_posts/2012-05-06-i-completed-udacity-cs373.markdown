@@ -21,6 +21,6 @@ I had to brush up on some math concepts I started to forget, like matrix arithme
 * [PID Controllers](http://en.wikipedia.org/wiki/PID_controller)
 * [Simultaneous Localization and Mapping (SLAM)](http://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping)
 * [A* Pathfinding](http://en.wikipedia.org/wiki/A_star)
-* [Dyanmic programming](http://en.wikipedia.org/wiki/Dynamic_programming)
+* [Dynamic programming](http://en.wikipedia.org/wiki/Dynamic_programming)
 
-All in all, I learned a ton and I'm looking forward to trying out some of these concepts with quadcopters. I wish Udacity the best of luck and I'm looking forward to new and exciting classes from them. I hope they make Computer Vision one of them.
+All in all, I learned a ton and I'm looking forward to trying out some of these concepts with quadcopters. I wish Udacity the best of luck and I'm looking forward to new and exciting classes from them and I hope they make Computer Vision one of them.
