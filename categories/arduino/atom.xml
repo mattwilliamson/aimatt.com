@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Arduino | AI Matt]]></title>
   <link href="http://aimatt.com/categories/arduino/atom.xml" rel="self"/>
   <link href="http://aimatt.com/"/>
-  <updated>2012-07-25T21:51:57-04:00</updated>
+  <updated>2012-07-25T21:54:34-04:00</updated>
   <id>http://aimatt.com/</id>
   <author>
     <name><![CDATA[Matt Williamson]]></name>
@@ -82,11 +82,13 @@
 
 <p>Then I roughly laid out the board, following the tutorial and just used EAGLE's autorouter to route the traces.</p>
 
-<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/quad_pcb_layput.png" alt="Schematic" /></p>
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/quad_pcb_layput.png" alt="Layout" /></p>
 
 <h2>Step 5: Fabrication</h2>
 
 <p>I was looking into various hobbyist PCB fabrication services and I was liking the DorkbotPDX service the most when I realized it had been just re-done and had become <a href="http://oshpark.com/">OSHPark.com</a>. Since then, I've basically been using that site as a Gerber file viewer to see how my design will look on a final board. When I finally got to a point where I liked the board, I submitted my board and paid the $30 to have it fabricated and shipped to me. It took about 3 or 4 weeks to get them, but it was like Christmas when I did!</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/pcb_order.png" alt="OSHPark" /></p>
 
 <h2>Step 6: Soldering</h2>
 
