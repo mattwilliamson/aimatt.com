@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Multirotor | AI Matt]]></title>
   <link href="http://aimatt.com/categories/multirotor/atom.xml" rel="self"/>
   <link href="http://aimatt.com/"/>
-  <updated>2012-07-25T21:49:17-04:00</updated>
+  <updated>2012-07-25T21:50:16-04:00</updated>
   <id>http://aimatt.com/</id>
   <author>
     <name><![CDATA[Matt Williamson]]></name>
@@ -53,7 +53,7 @@
 
 <h2>Step 3: Pick out the parts</h2>
 
-<p>I bought all the crystals, capacitors, resistors, LEDs, headers and buttons on eBay, in quantities of between 20 and 100 each. For the ATmega328P-AU, the <a href="http://en.wikipedia.org/wiki/Surface-mount_technology">SMT</a> version of the microcontroller of the Arduino Uno, I went to <a href="http://uk.mouser.com/ProductDetail/Atmel/ATMEGA328P-AU/?qs=K8BHR703ZXjB9uTYboq2G8iArio/9fOg">Mouser</a> which gives discounts with higher quantities. Each board needs:</p>
+<p>I bought all the crystals, capacitors, resistors, LEDs, headers and buttons on eBay, in quantities of between 20 and 100 each. For small quantities, I use Sparkfun. For the ATmega328P-AU, the <a href="http://en.wikipedia.org/wiki/Surface-mount_technology">SMT</a> version of the microcontroller of the Arduino Uno, I went to <a href="http://uk.mouser.com/ProductDetail/Atmel/ATMEGA328P-AU/?qs=K8BHR703ZXjB9uTYboq2G8iArio/9fOg">Mouser</a> which gives discounts with higher quantities. Each board needs:</p>
 
 <ul>
 <li>2x <a href="https://www.sparkfun.com/products/8377">330 Ohm resistors</a> for LEDs</li>
