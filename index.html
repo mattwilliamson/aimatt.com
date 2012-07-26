@@ -138,7 +138,7 @@
 
 <p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/Atmega168PinMap2.png" alt="Arduino Pins" /></p>
 
-<h2>Pick out the parts</h2>
+<h2>Step 3: Pick out the parts</h2>
 
 <p>I bought all the crystals, capacitors, resistors, LEDs, headers and buttons on eBay, in quantities of between 20 and 100 each. For the ATmega328P-AU, the <a href="http://en.wikipedia.org/wiki/Surface-mount_technology">SMT</a> version of the microcontroller of the Arduino Uno, I went to <a href="http://uk.mouser.com/ProductDetail/Atmel/ATMEGA328P-AU/?qs=K8BHR703ZXjB9uTYboq2G8iArio/9fOg">Mouser</a> which gives discounts with higher quantities. Each board needs:</p>
 
@@ -159,7 +159,7 @@
 
 <p>I hooked it all up to a breadboard to test out with a through-hole version of the ATmega328 to make sure it was all working before doing the design.</p>
 
-<h2>Design the board</h2>
+<h2>Step 4: Design the board</h2>
 
 <p>Now that I&#8217;d figured out to get all the parts working together, it was time to figure out how do design a PCB. I read <a href="http://www.sparkfun.com/tutorials/108">Sparkfun&#8217;s EAGLE tutorial</a> a couple times to let it sink in. Then, I went and downloaded the <a href="http://www.cadsoftusa.com/">free version of EAGLE</a> and got started.</p>
 
@@ -171,17 +171,17 @@
 
 <p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/quad_pcb_layput.png" alt="Schematic" /></p>
 
-<h2>Fabrication</h2>
+<h2>Step 5: Fabrication</h2>
 
 <p>I was looking into various hobbyist PCB fabrication services and I was liking the DorkbotPDX service the most when I realized it had been just re-done and had become <a href="http://oshpark.com/">OSHPark.com</a>. Since then, I&#8217;ve basically been using that site as a Gerber file viewer to see how my design will look on a final board. When I finally got to a point where I liked the board, I submitted my board and paid the $30 to have it fabricated and shipped to me. It took about 3 or 4 weeks to get them, but it was like Christmas when I did!</p>
 
-<h2>Soldering</h2>
+<h2>Step 6: Soldering</h2>
 
 <p>I&#8217;d never soldered SMT before, but Sparkfun <a href="http://www.sparkfun.com/tutorials/107">has a tutorial for that</a>, too. I laid down the ATmega328 on it&#8217;s pads and soldered one corner to tack it down. Then I laid globs of solder down on each side and used solder wick to pick up the excess. Since I didn&#8217;t have flux, it was very frustrating to do at first, but I finally got the hang of it. Looking under a magnifying glass, it looked like there were no solder bridges, so I crossed my fingers and hoped all the pads were making contact with the pins and moved on.</p>
 
 <p>Next, I put in all the through-hole components in and soldered them. Nothing interesting there. Then I soldered the headers in, one at a time. They are tricky since they wiggle and end up crooked. Sparkfun&#8217;s parts library has some &#8220;lock&#8221; headers which have the holes jagged, for a tighter fit, and I wish I had used them.</p>
 
-<h2>Programming</h2>
+<h2>Step 7: Programming</h2>
 
 <p>Time for the fun part. I bought an <a href="http://www.fischl.de/usbasp/">USBasp</a> from ebay to program AVR microcontrollers which is why I used the 2x5 shrouded headers for ICSP. I plugged it into the computer and the board and once again crossed my fingers. The power LED didn&#8217;t light up. Dang! I decided to try to burn the Arduino firmware on there anyway. I launched the Arduino IDE and hit the &#8220;Burn Bootloader&#8221; button and the status LED began flashing! Yay!</p>
 
@@ -191,7 +191,7 @@
 
 <p>I then launched the MultiWiiConfig application on my computer and saw the orientation of the sensors were wrong, so I fiddled with them for about and hour, re-flashing every time I tested a change. Once the orientation was correct, I decided it was time for a test.</p>
 
-<h2>Installation</h2>
+<h2>Step 8: Installation</h2>
 
 <p>I hot-glued some standoffs on the plastic container and screwed the board onto the standoffs. Plugged in the BEC for power, plugged in the motors (easy thanks to the silkscreen) and plugged in the serial PPM receiver. Easy as pie, compared to using an Arduino where you have to constantly check out the MultiWii site to figure out which pins were which.</p>
 
@@ -202,6 +202,8 @@
 <p>I figured I had to make sure they were all working, so I armed to motors and all spun up. I took it out back and practiced my hover until my battery died.</p>
 
 <p>This was my first PCB and my first quadcopter, though I have had the copter for a while now and I was able to get it working. If I could design a PCB and have it work on the first try, anyone can. Hobbyist electronics has really come a long way in the past few years.</p>
+
+<p>Thank you to the open source community and a <em>huge</em> thank you goes out to <a href="http://sparkfun.com">Sparkfun</a> for sharing all of their secrets with the general public.</p>
 
 <p>As a side note, I had a Hawaiian themed party last week and we have a left over fake parrot. I figured it could help me keep track of the orientation of my quadcopter instead of forgetting which way it&#8217;s facing. Here&#8217;s how it looks:</p>
 
