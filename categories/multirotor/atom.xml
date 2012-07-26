@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Electronics | AI Matt]]></title>
-  <link href="http://aimatt.com/categories/electronics/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Multirotor | AI Matt]]></title>
+  <link href="http://aimatt.com/categories/multirotor/atom.xml" rel="self"/>
   <link href="http://aimatt.com/"/>
   <updated>2012-07-25T21:45:58-04:00</updated>
   <id>http://aimatt.com/</id>
@@ -119,121 +119,6 @@
 <p>As a side note, I had a Hawaiian themed party last week and we have a left over fake parrot. I figured it could help me keep track of the orientation of my quadcopter instead of forgetting which way it's facing. Here's how it looks:</p>
 
 <p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/quadcopter_parrot.jpg" alt="PCB Installed" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Arduino Burglar Alarm with SMS]]></title>
-    <link href="http://aimatt.com/2012/05/05/arduino-burglar-alarm-with-sms/"/>
-    <updated>2012-05-05T11:17:00-04:00</updated>
-    <id>http://aimatt.com/2012/05/05/arduino-burglar-alarm-with-sms</id>
-    <content type="html"><![CDATA[<p><img class="right" src="https://github.com/mattwilliamson/arduino-sms-alarm/raw/master/action_shots/sms.png" title="SMS Burglar Alert" ></p>
-
-<p>I made a simple Arduino project, using a motion sensor and the <a href="http://goo.gl/A36VN">TelAPI</a> web service
-to send me an SMS when motion (cat/burglar/child) triggers the Arduino. You can view the source at <a href="http://goo.gl/iQMTh">https://github.com/mattwilliamson/arduino-sms-alarm</a></p>
-
-<!--more-->
-
-
-<h2>Arduino SMS Alarm</h2>
-
-<p>An Arduino based burglar alarm that sends an SMS when motion is detected.
-It will send an SMS to you every 30 minutes while motion is detected (configurable).</p>
-
-<h2>Requirements</h2>
-
-<ul>
-<li>Python</li>
-<li>Python library <em>pyserial</em> installed</li>
-<li>Python library <em>requests</em> installed</li>
-<li>A <a href="http://goo.gl/A36VN">TelAPI</a> account</li>
-<li>An <a href="http://arduino.cc">Arduino</a></li>
-<li>A <a href="http://www.parallax.com/tabid/768/ProductID/83/Default.aspx">Parallax PIR sensor</a></li>
-<li>Some <a href="http://adafruit.com/products/266">female-female jumper wires</a></li>
-<li>Some <a href="http://www.adafruit.com/products/400">break-away headers</a> (to convert female to male)</li>
-</ul>
-
-
-<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/pir_sensor.png" alt="PIR Sensor" /></p>
-
-<h1>Set up</h1>
-
-<h2>Wire it up!</h2>
-
-<ol>
-<li>Attach <strong>+</strong> on the PIR sensor to <strong>5v</strong> on the Arduino</li>
-<li>Attach <strong>-</strong> on the PIR sensor to <strong>GND</strong> on the Arduino</li>
-<li>Attach <strong>OUT</strong> on the PIR sensor to <strong>DIGITAL 2</strong> on the Arduino</li>
-</ol>
-
-
-<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/Schematic_bb.png" alt="Schematic" />
-<img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/wired_up.png" alt="Wired Up" /></p>
-
-<h2>Upload the sketch</h2>
-
-<ol>
-<li>Plug your Arduino into your computer</li>
-<li>Open the <code>arduino_pir/arduino_pit.ino</code> sketch with the <a href="http://arduino.cc/hu/Main/Software">Arduino IDE</a></li>
-<li>Select your serial port (Tools>Serial Port) and click Upload</li>
-</ol>
-
-
-<p>Your arduino LED will now be blnking. This means the PIR sensor is calibrating.</p>
-
-<h2>Setup the server</h2>
-
-<ol>
-<li>Open server.py with a text editor</li>
-<li>Change the value of <code>SERIAL_PORT</code> to the serial port you set in the <a href="http://arduino.cc/hu/Main/Software">Arduino IDE</a>. For Windows it might look like <em>COM2</em>, for Posix systems, it might look like <em>/dev/tty.usbserial-AH00PP05</em></li>
-<li>Change the value of <code>SMS_FROM</code> to the number in your <a href="http://www.telapi.com/numbers/">TelAPI account numbers</a> (You can set this to another number, such as your own phone and it will cost a little extra. This is what I do.)</li>
-<li>Change the value <code>SMS_TO</code> to your cell phone</li>
-<li>Change the value of <code>TELAPI_ACCOUNT_SID</code> to your <code>Account SID</code> as found at <a href="http://www.telapi.com/dashboard">your TelAPI dashboard</a></li>
-<li>Change the value of <code>TELAPI_TOKEN</code> to your <code>Account Token</code> as found at <a href="http://www.telapi.com/dashboard">your TelAPI dashboard</a></li>
-</ol>
-
-
-<h2>Run it!</h2>
-
-<ol>
-<li>Open up your terminal and run <code>python server.py</code> (assuming the terminal is CD'd to the directory where server.py is)</li>
-<li>The Arduino will blink it's LED for 60 seconds. Get out of the sensor's sight while it calibrates.</li>
-</ol>
-
-
-<p>Now, whevever motion is detected in the infra-red spectrum (think body heat), <code>server.py</code> will send you an SMS up to once every 30 minutes.</p>
-
-<h2>Put it in a case (Optional)</h2>
-
-<ol>
-<li>Get some plastic case, like one from a hummus &amp; pretzel snack</li>
-<li>Cut a hole in the top for the sensor to be exposed (like R2D2 in an X-Wing)</li>
-<li>Cut a hole for the USB cable to stick out</li>
-<li>Tape or screw the sensor to the top</li>
-<li>Finit!</li>
-</ol>
-
-
-<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/case.png" alt="Cut a hole" />
-<img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/complete.png" alt="Cut a hole" /></p>
-
-<h1>Video</h1>
-
-<p><iframe width="640" height="390" src="http://www.youtube.com/embed/9AuOZ4iV9zY " frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></p>
-
-<p><strong>BEEP BEEP WHISTLE</strong></p>
-
-<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/xwingcar.jpg" alt="X-Wing Car" /></p>
-
-<p><strong>YUM</strong> (Makes a nice case)</p>
-
-<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/sabra.jpg" alt="Sabra Hummus Single Serve" /></p>
-
-<p>Free $25 credit when you sign up for a <a href="http://goo.gl/A36VN">TelAPI</a> account!</p>
-
-<hr />
-
-<p><a href="http://goo.gl/iQMTh">https://github.com/mattwilliamson/arduino-sms-alarm</a></p>
 ]]></content>
   </entry>
   
