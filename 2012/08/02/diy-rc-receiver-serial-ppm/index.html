@@ -172,9 +172,9 @@
 </ul>
 
 
-<p>First, strip the ends of the male side of the servo cable. Then, with the Arduino Mini facing down, solder BLACK into GND on the Arduino, RED to VCC and WHITE to Arduino PIN 9. Make sure the wires are coming out of the bottom of the Arduino. This is so when we hot glue the boards together, the hot glue will hold the cable in place and reduce stress on the solder joints.</p>
-
 <p>The pins of the XBee explorer and the Arduino Pro Mini line up perfectly. With the Arduino Mini facing down, put the headers into the serial port (pins GND, VCC, RXI, TXO) and solder them in. I would put the short end of headers into the Arduino side. The pins will be sticking out of the bottom of the Arduino when you are done. This is a good time to upload the serial PPM sketch using an <a href="https://www.sparkfun.com/products/9716">FTDI Basic</a>.</p>
+
+<p>Now, strip the ends of the male side of the servo cable. Then, with the Arduino Mini facing down, solder BLACK into GND on the Arduino, RED to VCC and WHITE to Arduino PIN 9. Make sure the wires are coming out of the bottom of the Arduino. This is so when we hot glue the boards together, the hot glue will hold the cable in place and reduce stress on the solder joints.</p>
 
 <p>Flip the Arduino over. Slide the explorer on the headers, facing up. Make sure GND matches up with GND on both boards. Put some hot glue between the boards to help them stick together. Solder the explorer onto the headers. They are now permanently joined! You should have something like this:</p>
 
@@ -183,6 +183,8 @@
 <h2>Use it!</h2>
 
 <p>Set up your XBee or WiFly chip and insert it into the receiver. Get the code from <a href="https://github.com/mattwilliamson/Arduino-RC-Receiver/blob/master/joystick.py">joystick.py</a> and make sure the <a href="http://www.pygame.org/install.html">pygame</a> python module is installed.</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/ppm-receiver/pluggedin.jpg" alt="Plugged In" /></p>
 
 <p>If you are using a WiFly, make sure you set it up to do Ad-Hoc WiFi network and then connect to it from your computer once it is plugged in. Make sure the following line is uncommented when using a WifFly:</p>
 
