@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Electronics | AI Matt]]></title>
   <link href="http://aimatt.com/categories/electronics/atom.xml" rel="self"/>
   <link href="http://aimatt.com/"/>
-  <updated>2012-08-03T14:57:39-04:00</updated>
+  <updated>2012-08-03T15:02:13-04:00</updated>
   <id>http://aimatt.com/</id>
   <author>
     <name><![CDATA[Matt Williamson]]></name>
@@ -36,7 +36,7 @@
 
 <p>While chatting with some fellas and gals in the freenode #multiwii channel and I heard about "Sum PPM", also known as "Serial PPM". It's a version of <a href="http://en.wikipedia.org/wiki/Pulse-position_modulation">Pulse Position Modulation</a>, the PWM protocol used to control a servo. The length of a pulse (how long the line is high) determines the servo's position. The range is 1000 microseconds to 2000 microseconds. Which degrees the servo points to for each value is determined by whether it's a 180° servo, or a 360° model.</p>
 
-<p>Sum PPM squeeze all of the channels onto one wire instead of one wire for each channel. The first pulse will be for the first channel, the second pulse for the second channel and so on. It knows which channel is which, by having an extra long pulse of 5000 or more microseconds after all the channels have pulsed. So a full datagram for 4 channels may look something like this:</p>
+<p>Sum PPM squeeze all of the channels onto one wire instead of one wire for each channel. The first pulse will be for the first channel, the second pulse for the second channel and so on. It knows which channel is which, by having an extra long pulse of 5000 or more microseconds after all the channels have pulsed. The pulse following the long "sync" pulse is channel 0. So a full datagram for 4 channels may look something like this:</p>
 
 <pre><code>__-- 1000µs --___-- 1200µs --___-- 2000µs --___-- 1500µs --___-- 5100µs --__
 </code></pre>
