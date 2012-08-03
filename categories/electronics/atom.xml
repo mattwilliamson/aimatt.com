@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Electronics | AI Matt]]></title>
   <link href="http://aimatt.com/categories/electronics/atom.xml" rel="self"/>
   <link href="http://aimatt.com/"/>
-  <updated>2012-08-03T15:02:13-04:00</updated>
+  <updated>2012-08-03T15:04:44-04:00</updated>
   <id>http://aimatt.com/</id>
   <author>
     <name><![CDATA[Matt Williamson]]></name>
@@ -67,7 +67,7 @@
 
 <p>```c</p>
 
-<h1>define SERIAL_SUM_PPM         ROLL,PITCH,THROTTLE,YAW,AUX1,AUX2,AUX3,AUX4 //For Robe/Hitec/Futaba</h1>
+<h1>define SERIAL_SUM_PPM   ROLL,PITCH,THROTTLE,YAW,AUX1,AUX2,AUX3,AUX4 //For Robe/Hitec/Futaba</h1>
 
 <p>```</p>
 
