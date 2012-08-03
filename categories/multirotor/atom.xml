@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Multirotor | AI Matt]]></title>
   <link href="http://aimatt.com/categories/multirotor/atom.xml" rel="self"/>
   <link href="http://aimatt.com/"/>
-  <updated>2012-08-03T15:12:58-04:00</updated>
+  <updated>2012-08-03T15:16:56-04:00</updated>
   <id>http://aimatt.com/</id>
   <author>
     <name><![CDATA[Matt Williamson]]></name>
@@ -109,7 +109,7 @@
 
 <p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/ppm-receiver/wifi.png" alt="Wifi" /></p>
 
-<p>Plug the receiver into your quadcopter. If you are running MultiWii, the signal should be connected to DIGITAL 2 on an ATmega328 Arduino or DIGITAL 19 on a Mega.</p>
+<p>Plug the receiver into your quadcopter. If you are running MultiWii, the signal (white wire) should be connected to <code>DIGITAL 2</code> on an ATmega328 Arduino or <code>DIGITAL 19</code> on a Mega.</p>
 
 <p>Plug in your joystick and run <code>joystick.py</code>. It may take a minute to establish an IP address after connecting and you may see "no route to host". Keep trying until it works. Once it does, you'll see the values being sent to the receiver printed out every couple seconds to make sure it's still alive. And you should be getting PPM output on your quad.</p>
 
