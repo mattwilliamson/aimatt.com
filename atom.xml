@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[AI Matt]]></title>
+  <link href="http://aimatt.com/atom.xml" rel="self"/>
+  <link href="http://aimatt.com/"/>
+  <updated>2012-08-03T12:53:40-04:00</updated>
+  <id>http://aimatt.com/</id>
+  <author>
+    <name><![CDATA[Matt Williamson]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Custom Quadcopter Control Board]]></title>
+    <link href="http://aimatt.com/2012/07/25/custom-quadcopter-control-board/"/>
+    <updated>2012-07-25T18:39:00-04:00</updated>
+    <id>http://aimatt.com/2012/07/25/custom-quadcopter-control-board</id>
+    <content type="html"><![CDATA[<p>After seeing hobbyist-oriented batch PCB services, such as Sparkfun&#8217;s BatchPCB and Laen&#8217;s OSHPark, I decided instead of squeezing an Arduino Mega and a DFRobotics shield into a plastic food container, I would make my own, compact PCB and send it out to be manufactured. To my dismay, it all worked on the first try!</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/quad_pcb_unpopulated.jpg" alt="PCB Unpopulated" /></p>
+
+<h2>Step 1: Establish requirements</h2>
+
+<p>There are some measures to cut cost and complexity (and thus board size) that were taken due to the nature of a multirotor. First, we can get rid of the voltage regulator circuit, since we will be powering the board with a 5v <a href="http://en.wikipedia.org/wiki/Battery_eliminator_circuit">BEC</a> such as <a href="http://www.hobbyking.com/hobbyking/store/__4319__TURNIGY_3A_UBEC_w_Noise_Reduction.html">this one</a> or powered by an <a href="http://www.hobbyking.com/hobbyking/store/__61__182__ESC_UBEC_VR-All_Speed_Controllers.html">ESC</a> motor controller with a BEC built in. This allows us to remove a voltage regulator and two electrolytic capacitors.</p>
+
+<p>I also left out the FTDI USB serial converter. Thie probably cuts $10 off the board and we can just use a <a href="https://www.sparkfun.com/products/9716">standard USB-TTL converter</a> for all the boards to program them.</p>
+
+<h2>Step 2: Get it working on the breadboard</h2>
+
+<p>I&#8217;ve done breadboard Ardunio projects a bunch of times, so I&#8217;m pretty familiar with the process. I recommend trying it out, if you haven&#8217;t already. Here&#8217;s a good link for instruction: <a href="http://arduino.cc/en/Main/Standalone">http://arduino.cc/en/Main/Standalone</a>. I chose to use the <a href="http://www.multiwii.com/">MultiWii</a> firmware for the quadcopter, which just needs 2 lines for I2C sensors, 1 line for Serial PPM from an RC receiver and 1 line for each rotor to control the motors.</p>
+
+<p>Next, I needed to map out the pins.</p>
+
+<p>For an ATmega328 microcontroller, which I chose to use for this project, the pins are as follows based on the diagrams from <a href="http://www.multiwii.com/connecting-elements">MultiWii</a>:</p>
+
+<ul>
+<li>Arduino Pin 3 -> Motor 1</li>
+<li>Arduino Pin 10 -> Motor 2</li>
+<li>Arduino Pin 9 -> Motor 3</li>
+<li>Arduino Pin 11 -> Motor 4</li>
+<li>Arduino Pin 2 -> Serial PPM Receiver</li>
+<li>Arduino Analog Pin 4 -> Sensor I2C Bus SDA (data)</li>
+<li>Arduino Analog Pin 5 -> Sensor I2C Bus SCL (clock)</li>
+</ul>
+
+
+<p>Then I needed to map these pins to the ATmega328&#8217;s pins, since Arduino&#8217;s pins don&#8217;t match the microcontroller&#8217;s. So I used the following image, snagged from the <a href="http://arduino.cc">Arduino.cc</a> site.</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/Atmega168PinMap2.png" alt="Arduino Pins" /></p>
+
+<h2>Step 3: Pick out the parts</h2>
+
+<p>I bought all the crystals, capacitors, resistors, LEDs, headers and buttons on eBay, in quantities of between 20 and 100 each. For small quantities, I use Sparkfun. For the ATmega328P-AU, the <a href="http://en.wikipedia.org/wiki/Surface-mount_technology">SMT</a> version of the microcontroller of the Arduino Uno, I went to <a href="http://uk.mouser.com/ProductDetail/Atmel/ATMEGA328P-AU/?qs=K8BHR703ZXjB9uTYboq2G8iArio/9fOg">Mouser</a> which gives discounts with higher quantities. Each board needs:</p>
+
+<ul>
+<li>2x <a href="https://www.sparkfun.com/products/8377">330 Ohm resistors</a> for LEDs</li>
+<li>2x 2.2 kOhm resistors for I2C bus</li>
+<li>1x <a href="https://www.sparkfun.com/products/97">momentary push button</a></li>
+<li>1x 0.1&#8221; 2x5 shrouded header for ICSP</li>
+<li>1x <a href="https://www.sparkfun.com/products/536">16mhz crystal oscillator</a></li>
+<li>1x <a href="https://www.sparkfun.com/products/533">3mm red LED</a></li>
+<li>1x <a href="https://www.sparkfun.com/products/9650">3mm green LED</a></li>
+<li><a href="https://www.sparkfun.com/products/116">0.1&#8221; male headers</a></li>
+<li><a href="https://www.sparkfun.com/products/115">0.1&#8221; female headers</a></li>
+<li>2x 22pF ceramic capacitors</li>
+<li>1x <a href="http://www.goodluckbuy.com/10dof-l3g4200dadxl345hmc5883lbmp085-nine-axis-imu-module.html">10DOF IMU sensor board</a></li>
+</ul>
+
+
+<p>I hooked it all up to a breadboard to test out with a through-hole version of the ATmega328 to make sure it was all working before doing the design.</p>
+
+<h2>Step 4: Design the board</h2>
+
+<p>Now that I&#8217;d figured out to get all the parts working together, it was time to figure out how do design a PCB. I read <a href="http://www.sparkfun.com/tutorials/108">Sparkfun&#8217;s EAGLE tutorial</a> a couple times to let it sink in. Then, I went and downloaded the <a href="http://www.cadsoftusa.com/">free version of EAGLE</a> and got started.</p>
+
+<p>First, I laid out the schematic, which was made <strong>so much easier</strong> thanks to <a href="https://github.com/sparkfun/SparkFun-Eagle-Library">Sparkfun&#8217;s parts library</a>.</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/quad_pcb_schematic.png" alt="Schematic" /></p>
+
+<p>Then I roughly laid out the board, following the tutorial and just used EAGLE&#8217;s autorouter to route the traces.</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/quad_pcb_layput.png" alt="Layout" /></p>
+
+<h2>Step 5: Fabrication</h2>
+
+<p>I was looking into various hobbyist PCB fabrication services and I was liking the DorkbotPDX service the most when I realized it had been just re-done and had become <a href="http://oshpark.com/">OSHPark.com</a>. Since then, I&#8217;ve basically been using that site as a Gerber file viewer to see how my design will look on a final board. When I finally got to a point where I liked the board, I submitted my board and paid the $30 to have it fabricated and shipped to me. It took about 3 or 4 weeks to get them, but it was like Christmas when I did!</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/pcb_order.png" alt="OSHPark" /></p>
+
+<h2>Step 6: Soldering</h2>
+
+<p>I&#8217;d never soldered SMT before, but Sparkfun <a href="http://www.sparkfun.com/tutorials/107">has a tutorial for that</a>, too. I laid down the ATmega328 on it&#8217;s pads and soldered one corner to tack it down. Then I laid globs of solder down on each side and used solder wick to pick up the excess. Since I didn&#8217;t have flux, it was very frustrating to do at first, but I finally got the hang of it. Looking under a magnifying glass, it looked like there were no solder bridges, so I crossed my fingers and hoped all the pads were making contact with the pins and moved on.</p>
+
+<p>Next, I put in all the through-hole components in and soldered them. Nothing interesting there. Then I soldered the headers in, one at a time. They are tricky since they wiggle and end up crooked. Sparkfun&#8217;s parts library has some &#8220;lock&#8221; headers which have the holes jagged, for a tighter fit, and I wish I had used them.</p>
+
+<h2>Step 7: Programming</h2>
+
+<p>Time for the fun part. I bought an <a href="http://www.fischl.de/usbasp/">USBasp</a> from ebay to program AVR microcontrollers which is why I used the 2x5 shrouded headers for ICSP. I plugged it into the computer and the board and once again crossed my fingers. The power LED didn&#8217;t light up. Dang! I decided to try to burn the Arduino firmware on there anyway. I launched the Arduino IDE and hit the &#8220;Burn Bootloader&#8221; button and the status LED began flashing! Yay!</p>
+
+<p>I wondered what was wrong with power LED, so I took another LED out of the bag and touched the leads to the pads, thinking I had inserted the LED backwards, and it lit up. I checked the orientation and the LED was in the right way, but was either defective or burned up from soldering too long. I sucked the solder out and put the new LED and everything was operational with the default Arduino blinky sketch.</p>
+
+<p>It was time to put MultiWii on. I downloaded the Arduino MultiWii project and customized the config to match up with the hardware and used my Sparkfun FTDI Basic to program it. Since I did not implement auto-reset, I had to hold the reset button until the Arduino IDE says it is uploading to the board.</p>
+
+<p>I then launched the MultiWiiConfig application on my computer and saw the orientation of the sensors were wrong, so I fiddled with them for about and hour, re-flashing every time I tested a change. Once the orientation was correct, I decided it was time for a test.</p>
+
+<h2>Step 8: Installation</h2>
+
+<p>I hot-glued some standoffs on the plastic container and screwed the board onto the standoffs. Plugged in the BEC for power, plugged in the motors (easy thanks to the silkscreen) and plugged in the serial PPM receiver. Easy as pie, compared to using an Arduino where you have to constantly check out the MultiWii site to figure out which pins were which.</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/pcb_installed.jpg" alt="PCB Installed" /></p>
+
+<p>Then I plugged in the battery and, amazingly, I heard beeps from all 4 ESCs. Success!</p>
+
+<p>I figured I had to make sure they were all working, so I armed to motors and all spun up. I took it out back and practiced my hover until my battery died.</p>
+
+<p>This was my first PCB and my first quadcopter, though I have had the copter for a while now and I was able to get it working. If I could design a PCB and have it work on the first try, anyone can. Hobbyist electronics has really come a long way in the past few years.</p>
+
+<p>Thank you to the open source community and a <em>huge</em> thank you goes out to <a href="http://sparkfun.com">Sparkfun</a> for sharing all of their secrets with the general public.</p>
+
+<p>As a side note, I had a Hawaiian themed party last week and we have a left over fake parrot. I figured it could help me keep track of the orientation of my quadcopter instead of forgetting which way it&#8217;s facing. Here&#8217;s how it looks:</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/quadcopter/quadcopter_parrot.jpg" alt="PCB Installed" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[I can program a robotic car]]></title>
+    <link href="http://aimatt.com/2012/05/06/i-completed-udacity-cs373/"/>
+    <updated>2012-05-06T15:25:00-04:00</updated>
+    <id>http://aimatt.com/2012/05/06/i-completed-udacity-cs373</id>
+    <content type="html"><![CDATA[<p>It&#8217;s official. I now know how to program a robotic car.</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/cs373_certificate.png" alt="Certificate" /></p>
+
+<p>It was not easy by any means, but I aced Udacity&#8217;s seven-week class, <a href="http://www.udacity.com/view#Course/cs373/CourseRev/feb2012">CS373: Programming a Robotic Car</a>. I spent a few hours a week on homework and a few hours a week on classwork, with the seventh week being the final exam.</p>
+
+<p>I had to brush up on some math concepts I started to forget, like matrix arithmetic and probabilities, but I was able to get through, thanks to the <a href="http://www.khanacademy.org/">Khan Academy</a>. Some of the topics I learned about were:</p>
+
+<p><img class="right" src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/google_car.jpg" title="Google Self Driving Car" ></p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Monte_Carlo_localization">Markov localization</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Kalman_filter">Kalman Filters</a></li>
+<li><a href="http://en.wikipedia.org/wiki/PID_controller">PID Controllers</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping">Simultaneous Localization and Mapping (SLAM)</a></li>
+<li><a href="http://en.wikipedia.org/wiki/A_star">A* Pathfinding</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Dynamic_programming">Dynamic programming</a></li>
+</ul>
+
+
+<p>All in all, I learned a ton and I&#8217;m looking forward to trying out some of these concepts with quadcopters. I wish Udacity the best of luck and I&#8217;m looking forward to new and exciting classes from them and I hope they make Computer Vision one of them.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Arduino Burglar Alarm with SMS]]></title>
+    <link href="http://aimatt.com/2012/05/05/arduino-burglar-alarm-with-sms/"/>
+    <updated>2012-05-05T11:17:00-04:00</updated>
+    <id>http://aimatt.com/2012/05/05/arduino-burglar-alarm-with-sms</id>
+    <content type="html"><![CDATA[<p><img class="right" src="https://github.com/mattwilliamson/arduino-sms-alarm/raw/master/action_shots/sms.png" title="SMS Burglar Alert" ></p>
+
+<p>I made a simple Arduino project, using a motion sensor and the <a href="http://goo.gl/A36VN">TelAPI</a> web service
+to send me an SMS when motion (cat/burglar/child) triggers the Arduino. You can view the source at <a href="http://goo.gl/iQMTh">https://github.com/mattwilliamson/arduino-sms-alarm</a></p>
+
+<!--more-->
+
+
+<h2>Arduino SMS Alarm</h2>
+
+<p>An Arduino based burglar alarm that sends an SMS when motion is detected.
+It will send an SMS to you every 30 minutes while motion is detected (configurable).</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Python</li>
+<li>Python library <em>pyserial</em> installed</li>
+<li>Python library <em>requests</em> installed</li>
+<li>A <a href="http://goo.gl/A36VN">TelAPI</a> account</li>
+<li>An <a href="http://arduino.cc">Arduino</a></li>
+<li>A <a href="http://www.parallax.com/tabid/768/ProductID/83/Default.aspx">Parallax PIR sensor</a></li>
+<li>Some <a href="http://adafruit.com/products/266">female-female jumper wires</a></li>
+<li>Some <a href="http://www.adafruit.com/products/400">break-away headers</a> (to convert female to male)</li>
+</ul>
+
+
+<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/pir_sensor.png" alt="PIR Sensor" /></p>
+
+<h1>Set up</h1>
+
+<h2>Wire it up!</h2>
+
+<ol>
+<li>Attach <strong>+</strong> on the PIR sensor to <strong>5v</strong> on the Arduino</li>
+<li>Attach <strong>-</strong> on the PIR sensor to <strong>GND</strong> on the Arduino</li>
+<li>Attach <strong>OUT</strong> on the PIR sensor to <strong>DIGITAL 2</strong> on the Arduino</li>
+</ol>
+
+
+<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/Schematic_bb.png" alt="Schematic" />
+<img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/wired_up.png" alt="Wired Up" /></p>
+
+<h2>Upload the sketch</h2>
+
+<ol>
+<li>Plug your Arduino into your computer</li>
+<li>Open the <code>arduino_pir/arduino_pit.ino</code> sketch with the <a href="http://arduino.cc/hu/Main/Software">Arduino IDE</a></li>
+<li>Select your serial port (Tools>Serial Port) and click Upload</li>
+</ol>
+
+
+<p>Your arduino LED will now be blnking. This means the PIR sensor is calibrating.</p>
+
+<h2>Setup the server</h2>
+
+<ol>
+<li>Open server.py with a text editor</li>
+<li>Change the value of <code>SERIAL_PORT</code> to the serial port you set in the <a href="http://arduino.cc/hu/Main/Software">Arduino IDE</a>. For Windows it might look like <em>COM2</em>, for Posix systems, it might look like <em>/dev/tty.usbserial-AH00PP05</em></li>
+<li>Change the value of <code>SMS_FROM</code> to the number in your <a href="http://www.telapi.com/numbers/">TelAPI account numbers</a> (You can set this to another number, such as your own phone and it will cost a little extra. This is what I do.)</li>
+<li>Change the value <code>SMS_TO</code> to your cell phone</li>
+<li>Change the value of <code>TELAPI_ACCOUNT_SID</code> to your <code>Account SID</code> as found at <a href="http://www.telapi.com/dashboard">your TelAPI dashboard</a></li>
+<li>Change the value of <code>TELAPI_TOKEN</code> to your <code>Account Token</code> as found at <a href="http://www.telapi.com/dashboard">your TelAPI dashboard</a></li>
+</ol>
+
+
+<h2>Run it!</h2>
+
+<ol>
+<li>Open up your terminal and run <code>python server.py</code> (assuming the terminal is CD&#8217;d to the directory where server.py is)</li>
+<li>The Arduino will blink it&#8217;s LED for 60 seconds. Get out of the sensor&#8217;s sight while it calibrates.</li>
+</ol>
+
+
+<p>Now, whevever motion is detected in the infra-red spectrum (think body heat), <code>server.py</code> will send you an SMS up to once every 30 minutes.</p>
+
+<h2>Put it in a case (Optional)</h2>
+
+<ol>
+<li>Get some plastic case, like one from a hummus &amp; pretzel snack</li>
+<li>Cut a hole in the top for the sensor to be exposed (like R2D2 in an X-Wing)</li>
+<li>Cut a hole for the USB cable to stick out</li>
+<li>Tape or screw the sensor to the top</li>
+<li>Finit!</li>
+</ol>
+
+
+<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/case.png" alt="Cut a hole" />
+<img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/complete.png" alt="Cut a hole" /></p>
+
+<h1>Video</h1>
+
+<iframe width="640" height="390" src="http://www.youtube.com/embed/9AuOZ4iV9zY " frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
+<p><strong>BEEP BEEP WHISTLE</strong></p>
+
+<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/xwingcar.jpg" alt="X-Wing Car" /></p>
+
+<p><strong>YUM</strong> (Makes a nice case)</p>
+
+<p><img src="https://raw.github.com/mattwilliamson/arduino-sms-alarm/master/action_shots/sabra.jpg" alt="Sabra Hummus Single Serve" /></p>
+
+<p>Free $25 credit when you sign up for a <a href="http://goo.gl/A36VN">TelAPI</a> account!</p>
+
+<hr />
+
+<p><a href="http://goo.gl/iQMTh">https://github.com/mattwilliamson/arduino-sms-alarm</a></p>
+]]></content>
+  </entry>
+  
+</feed>
