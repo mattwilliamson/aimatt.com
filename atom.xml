@@ -4,7 +4,7 @@
   <title><![CDATA[AI Matt]]></title>
   <link href="http://aimatt.com/atom.xml" rel="self"/>
   <link href="http://aimatt.com/"/>
-  <updated>2012-10-19T13:46:08-04:00</updated>
+  <updated>2013-01-14T16:21:30-05:00</updated>
   <id>http://aimatt.com/</id>
   <author>
     <name><![CDATA[Matt Williamson]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Über l33t coffee coaster]]></title>
+    <link href="http://aimatt.com/2013/01/14/uber-l33t-coffee-coaster/"/>
+    <updated>2013-01-14T19:03:00-05:00</updated>
+    <id>http://aimatt.com/2013/01/14/uber-l33t-coffee-coaster</id>
+    <content type="html"><![CDATA[<p>Got borked PCBs that didn&#8217;t quite work out? Great! Instead of just taking up space, just turn them into useful coasters to protect that <a href="http://www.parnian.com/desk.shtml">Parnian</a> desk of yours.</p>
+
+<p>Take your PCB (that will fit your favorite mug).</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/coaster/overview.jpg" alt="overview" /></p>
+
+<p>Stick some self adhesive pads on the bottom</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/coaster/pads.jpg" alt="pads" /></p>
+
+<p>Easy enough.</p>
+
+<p><img src="https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/coaster/mug.jpg" alt="mug" /></p>
+
+<p>Go forth and sell them on <a href="http://etsy.com">Etsy</a> or [Tindie](http://tindie.com]!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[new-post]]></title>
+    <link href="http://aimatt.com/2013/01/14/new-post/"/>
+    <updated>2013-01-14T15:57:00-05:00</updated>
+    <id>http://aimatt.com/2013/01/14/new-post</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DIY RC Receiver (Serial PPM)]]></title>
