@@ -21,4 +21,4 @@ Easy enough.
 ![mug](https://github.com/mattwilliamson/aimatt.com/raw/gh-pages/images/posts/coaster/mug.jpg)
 
 
-Go forth and sell them on [Etsy](http://etsy.com) or [Tindie](http://tindie.com]!
+Go forth and sell them on [Etsy](http://etsy.com) or [Tindie](http://tindie.com)!
