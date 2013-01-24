@@ -3,7 +3,7 @@ layout: post
 title: "Über l33t coffee coaster"
 date: 2013-01-14 19:03
 comments: true
-categories: [Electronics, Multirotor, Arduino, Radio]
+categories: [Electronics]
 ---
 
 Got borked PCBs that didn't quite work out? Great! Instead of just taking up space, just turn them into useful coasters to protect that [Parnian](http://www.parnian.com/desk.shtml) desk of yours.
